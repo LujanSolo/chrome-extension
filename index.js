@@ -2,7 +2,11 @@ const buttonEl = document.getElementById('input-btn');
 const searchEl = document.getElementById('input-el');
 const ulEl = document.getElementById('ul-el');
 
-let myLeads = [];
+let myLeads = [
+    "test1",
+    "howdy y'all",
+    "yuppers"
+];
 
 
 buttonEl.addEventListener('click', () => {
@@ -10,5 +14,5 @@ buttonEl.addEventListener('click', () => {
 });
 
 for(let i=0; i < myLeads.length; i++){
-    console.log(myLeads[i])
-}
+    ulEl.innerHTML += '<li>' + myLeads[i] + '</li>';
+};
