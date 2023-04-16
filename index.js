@@ -1,11 +1,8 @@
 const buttonEl = document.getElementById('input-btn');
 const searchEl = document.getElementById('input-el');
+const ulEl = document.getElementById('ul-el');
 
-let myLeads = [
-    "test1",
-    "test2",
-    "test3"
-];
+let myLeads = [];
 
 
 buttonEl.addEventListener('click', () => {
