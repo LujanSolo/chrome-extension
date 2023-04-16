@@ -1,9 +1,10 @@
 const buttonEl = document.getElementById('input-btn');
 const searchEl = document.getElementById('input-el');
 
-const myLeads = [];
+let myLeads = [];
 
 
 buttonEl.addEventListener('click', () => {
-    console.log('clicked')
+    myLeads.push(searchEl.value);
+    console.log(myLeads);
 });
