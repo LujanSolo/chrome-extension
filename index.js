@@ -9,6 +9,7 @@ let myLeads = [];
 buttonEl.addEventListener("click", () => {
   myLeads.push(searchEl.value);
   renderSearch();
+  searchEl.value = "";
 });
 
 function renderSearch() {
