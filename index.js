@@ -4,10 +4,14 @@ const ulEl = document.getElementById("ul-el");
 
 let myLeads = [];
 
+let storedLeads = JSON.parse(localStorage.getItem("myLeads"));
+console.log(storedLeads);
+
 buttonEl.addEventListener("click", () => {
   myLeads.push(searchEl.value);
-  renderSearch();
   searchEl.value = "";
+  localStorage.setItem("myLeads", JSON.stringify(myLeads));
+  renderSearch();
 });
 
 function renderSearch() {
