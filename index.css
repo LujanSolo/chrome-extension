@@ -18,8 +18,13 @@ button {
   color: white;
   box-sizing: border-box;
   padding: 10px 20px;
-  border: none;
+  border: 1px solid #5f9341;
   font-weight: bold;
+}
+
+#del-btn {
+  color: #5f9341;
+  background: white;
 }
 
 ul {
