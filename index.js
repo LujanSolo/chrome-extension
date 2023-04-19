@@ -1,5 +1,6 @@
 // variables for html elements
 const buttonEl = document.getElementById("input-btn");
+const deleteBtnEl = document.getElementById("del-btn");
 const searchEl = document.getElementById("input-el");
 const ulEl = document.getElementById("ul-el");
 
@@ -7,7 +8,7 @@ const ulEl = document.getElementById("ul-el");
 let myLeads = [];
 
 // variable to parse JSON to a string
-let storedLeads = JSON.parse(localStorage.getItem("myLeads"));
+const storedLeads = JSON.parse(localStorage.getItem("myLeads"));
 
 // conditional statement to determine if any entries exist in window.localStorage
 if(storedLeads){
@@ -22,6 +23,11 @@ buttonEl.addEventListener("click", () => {
   localStorage.setItem("myLeads", JSON.stringify(myLeads)); // store searches to window.localStorage
   renderSearch(); // call renderSearch function
 });
+
+// button function to DELETE ALL entries/li's from ul
+deleteBtnEl.addEventListener("click", () =>{
+  listItems="";
+})
 
 // renderSearch function that dynamically creates li's within the declared ul on index.html
 function renderSearch() {
