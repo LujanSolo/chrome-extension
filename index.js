@@ -9,6 +9,11 @@ let myLeads = [];
 // variable to parse JSON to a string
 let storedLeads = JSON.parse(localStorage.getItem("myLeads"));
 
+// conditional statement to determine if any entries exist in window.localStorage
+if(storedLeads){
+  myLeads = storedLeads;
+  renderSearch();
+};
 
 // button function that pushes user's entry from input field to the myLeads array
 buttonEl.addEventListener("click", () => {
