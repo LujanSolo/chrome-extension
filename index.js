@@ -24,10 +24,12 @@ buttonEl.addEventListener("click", () => {
   renderSearch(); // call renderSearch function
 });
 
-// button function to DELETE ALL entries/li's from ul
-deleteBtnEl.addEventListener("click", () =>{
-  listItems="";
-})
+// button function to DELETE ALL entries/li's from ul by clearing window.localStorage and setting myLeads to an empty array
+deleteBtnEl.addEventListener("dblclick", () => {
+  myLeads = [];
+  localStorage.clear();
+  renderSearch();
+});
 
 // renderSearch function that dynamically creates li's within the declared ul on index.html
 function renderSearch() {
