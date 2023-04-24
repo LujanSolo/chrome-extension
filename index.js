@@ -13,7 +13,7 @@ const storedLeads = JSON.parse(localStorage.getItem("myLeads"));
 // conditional statement to determine if any entries exist in window.localStorage
 if(storedLeads){
   myLeads = storedLeads;
-  renderSearch();
+  renderSearch(myLeads);
 };
 
 // button function that pushes user's entry from input field to the myLeads array
@@ -21,24 +21,24 @@ buttonEl.addEventListener("click", () => {
   myLeads.push(searchEl.value);
   searchEl.value = ""; // reset input field to blank
   localStorage.setItem("myLeads", JSON.stringify(myLeads)); // store searches to window.localStorage
-  renderSearch(); // call renderSearch function
+  render(myLeads); // call renderSearch function
 });
 
 // button function to DELETE ALL entries/li's from ul by clearing window.localStorage and setting myLeads to an empty array
 deleteBtnEl.addEventListener("dblclick", () => {
   myLeads = [];
   localStorage.clear();
-  renderSearch();
+  render(myLeads);
 });
 
 // renderSearch function that dynamically creates li's within the declared ul on index.html
-function renderSearch() {
+function render(leads) {
   let listItems = "";  // variable to hold all list items inside a string
-  for (let i = 0; i < myLeads.length; i++) {
+  for (let i = 0; i < leads.length; i++) {
     // template string holding list elements and js references to myLeads array
     listItems += `<li>
-                    <a href='${myLeads[i]}' target="_blank">
-                      ${myLeads[i]}
+                    <a href='${leads[i]}' target="_blank">
+                      ${leads[i]}
                     </a>
                   </li>
                   `
