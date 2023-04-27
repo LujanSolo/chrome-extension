@@ -1,5 +1,6 @@
 // variables for html elements
-const buttonEl = document.getElementById("input-btn");
+const saveInputBtn = document.getElementById("input-btn");
+const saveTabBtn = document.getElementById("tab-btn");
 const deleteBtnEl = document.getElementById("del-btn");
 const searchEl = document.getElementById("search-el");
 const ulEl = document.getElementById("ul-el");
@@ -11,18 +12,34 @@ let myLeads = [];
 const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
 
 // conditional statement to determine if any entries exist in window.localStorage
-if(leadsFromLocalStorage){
+if (leadsFromLocalStorage) {
   myLeads = leadsFromLocalStorage;
   render(myLeads);
 };
 
 // button function that pushes user's entry from input field to the myLeads array
-buttonEl.addEventListener("click", () => {
+saveInputBtn.addEventListener("click", () => {
   myLeads.push(searchEl.value);
   searchEl.value = ""; // reset input field to blank
   localStorage.setItem("myLeads", JSON.stringify(myLeads)); // store searches to window.localStorage
   render(myLeads); // call render function
 });
+
+// button function to save current active tab
+saveTabBtn.addEventListener("click", () => {
+  chrome.tabs.query(
+    {
+      active: true,
+      currentWindow: true
+    },
+    function (tabs) {
+      myLeads.push(tabs[0].url);
+      localStorage.setItem("myLeads", JSON.stringify(myLeads));
+      render(myLeads);
+    })
+});
+
+
 
 // button function to DELETE ALL entries/li's from ul by clearing window.localStorage and setting myLeads to an empty array
 deleteBtnEl.addEventListener("dblclick", () => {
