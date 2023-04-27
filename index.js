@@ -1,18 +1,18 @@
 // variables for html elements
 const buttonEl = document.getElementById("input-btn");
 const deleteBtnEl = document.getElementById("del-btn");
-const searchEl = document.getElementById("input-el");
+const searchEl = document.getElementById("search-el");
 const ulEl = document.getElementById("ul-el");
 
 // array to hold existing websites
 let myLeads = [];
 
 // variable to parse JSON to a string
-const storedLeads = JSON.parse(localStorage.getItem("myLeads"));
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
 
 // conditional statement to determine if any entries exist in window.localStorage
-if(storedLeads){
-  myLeads = storedLeads;
+if(leadsFromLocalStorage){
+  myLeads = leadsFromLocalStorage;
   render(myLeads);
 };
 
