@@ -39,8 +39,6 @@ saveTabBtn.addEventListener("click", () => {
     })
 });
 
-
-
 // button function to DELETE ALL entries/li's from ul by clearing window.localStorage and setting myLeads to an empty array
 deleteBtnEl.addEventListener("dblclick", () => {
   myLeads = [];
